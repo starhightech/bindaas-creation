@@ -1,0 +1,149 @@
+<div class="col-lg-12 col-md-12">
+  <div class="card mb-0 overflow-hidden">
+    <div class="card-header">
+      <h3 class="card-title">Settings</h3>
+    </div>
+    <div class="card-body">
+      <div class="settings-tab">
+        <ul class="tabs-menu nav">
+          <li class=""><a href="#tab-general" class="active" data-bs-toggle="tab"><i class="icon icon-speedometer"></i>
+              General</a></li>
+          <!-- <li><a href="#tab-messeging" data-bs-toggle="tab" class=""><i class="icon icon-bubble"></i> Message</a></li> -->
+          <li><a href="#tab-advanced" data-bs-toggle="tab" class=""><i class="icon icon-settings"></i> Advanced</a></li>
+        </ul>
+        <div class="tab-content">
+          <div class="tab-pane active show" id="tab-general">
+            <form id="user-update-form" class="form-horizontal" action="/account/setting/index" method="post"
+              data-pjax="">
+              <div class="form-group ">
+                <div class="row">
+                  <div class="col-md-3">
+                    <label class="form-label">Phone Number:</label>
+                  </div>
+                  <div class="col-md-9">
+                    <div class="form-group field-user-mobile_hidden">
+
+                      <input type="hidden" name="User[mobile_hidden]" value="">
+                      <div id="user-mobile_hidden" class="custom-control" role="radiogroup"><label><input type="radio"
+                            name="User[mobile_hidden]" value="0" checked=""> Visible to everyone</label>
+                        <label><input type="radio" name="User[mobile_hidden]" value="1"> Visible to only
+                          Customers</label>
+                      </div>
+
+                      <div class="help-block"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group mb-0">
+                <div class="row">
+                  <div class="col-md-3">
+                    <label class="form-label" id="inputPassword5">Email Address:</label>
+                  </div>
+                  <div class="col-md-9">
+                    <div class="form-group field-user-email_hidden">
+
+                      <input type="hidden" name="User[email_hidden]" value="">
+                      <div id="user-email_hidden" class="custom-control" role="radiogroup"><label><input type="radio"
+                            name="User[email_hidden]" value="0" checked=""> Visible to everyone</label>
+                        <label><input type="radio" name="User[email_hidden]" value="1"> Visible to only
+                          Customers</label>
+                      </div>
+
+                      <div class="help-block"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <hr>
+              <div class="form-group">
+                <button type="submit" class="btn btn-success">Update</button>
+              </div>
+            </form>
+          </div>
+
+          <div class="tab-pane" id="tab-messeging">
+            <div class="form-group ">
+              <div class="row">
+                <div class="col-md-3">
+                  <label class="form-label">Enable Messaging:</label>
+                </div>
+                <div class="col-md-9">
+                  <label class="form-switch">
+                    <input type="checkbox" name="form-switch-checkbox" class="form-switch-input">
+                    <span class="form-switch-indicator"></span>
+                    <span class="form-switch-description">On/Off</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="form-group ">
+              <div class="row">
+                <div class="col-md-3">
+                  <label class="form-label">Enable Notifications:</label>
+                </div>
+                <div class="col-md-9">
+                  <label class="form-switch">
+                    <input type="checkbox" name="form-switch-checkbox" class="form-switch-input">
+                    <span class="form-switch-indicator"></span>
+                    <span class="form-switch-description">On/Off</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-pane" id="tab-advanced">
+            <form id="business-update-form" class="form-horizontal" action="/account/setting/index" method="post"
+              data-pjax="">
+              <div class="form-group ">
+                <div class="row">
+                  <div class="col-md-3">
+                    <label class="form-label">Frontend Theme:</label>
+                  </div>
+                  <div class="col-md-9">
+                    <div class="form-group field-business-theme">
+
+                      <select id="business-theme" class="form-control" name="Business[theme]">
+                        <option value="">choose theme</option>
+                        <option value="">Default</option>
+                        <option value="restro">Restro</option>
+                      </select>
+
+                      <div class="help-block"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group ">
+                <div class="row">
+                  <div class="col-md-3">
+                    <label class="form-label">Moderate Review:</label>
+                  </div>
+                  <div class="col-md-9">
+                    <div class="form-group field-business-review_moderate">
+
+                      <input type="hidden" name="Business[review_moderate]" value="">
+                      <div id="business-review_moderate" class="form-control" role="radiogroup"><label><input
+                            type="radio" name="Business[review_moderate]" value="1"> Publish after moderated by
+                          admin.</label>
+                        <label><input type="radio" name="Business[review_moderate]" value="0" checked=""> Publish
+                          without admin moderation.</label>
+                      </div>
+
+                      <div class="help-block"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <hr>
+              <div class="form-group">
+                <button type="submit" class="btn btn-success">Update</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

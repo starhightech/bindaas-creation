@@ -1,0 +1,27 @@
+<!-- ======= Header ======= -->
+<header id="header" class="header fixed-top d-flex align-items-center">
+  <div class="container d-flex align-items-center justify-content-between">
+
+    <a routerLink="/" class="logo d-flex align-items-center me-auto me-lg-0">
+      <!-- Uncomment the line below if you also wish to use an image logo -->
+      <!-- <img src="assets/img/logo.png" alt=""> -->
+
+      <h1 *ngIf="business">{{business.title}}</h1>
+    </a>
+
+    <nav id="navbar" class="navbar">
+      <ul>
+        <li><a [routerLink]="['home']">Home</a></li>
+        <li><a *ngIf="business && business.items?.length" [routerLink]="['service']">{{business.type}}s</a></li>
+        <li><a [routerLink]="['about']">About Us</a></li>
+        <li><a [routerLink]="['review']">Reviews</a></li>
+        <li><a [routerLink]="['contact']" class="d-xs-block d-sm-block d-md-none d-lg-none">Contact Us</a></li>
+      </ul>
+    </nav><!-- .navbar -->
+
+    <a [routerLink]="['/contact']" class="btn-book-a-table d-none d-md-block">Contact Us</a>
+    <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
+    <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+
+  </div>
+</header><!-- End Header -->
