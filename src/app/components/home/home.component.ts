@@ -21,12 +21,14 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.google_api_key = environment.GOOGLE_MAPS_APIKEY;
-    this.service.getProfile()
-      .subscribe(response => {
-        this.business = response['data']['business'];
-        this.items = response['data']['business']['items'];
-        this.items.length = 3;
-        this.mapUrl = 'https://maps.google.com/maps?q='+this.business.latitude+','+this.business.longitude+'&hl=en;z=14&output=embed';
-      });
+
+    this.service.getBusiness().subscribe(response => {
+      this.business = response['data'];
+      this.mapUrl = 'https://maps.google.com/maps?q=' + this.business.latitude + ',' + this.business.longitude + '&hl=en;z=14&output=embed';
+    });
+    this.service.getProducts().subscribe(response => {
+      this.items = response['data'];
+      this.items.length = 3;
+    });
   }
 }

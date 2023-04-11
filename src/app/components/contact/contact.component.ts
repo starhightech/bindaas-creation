@@ -26,9 +26,9 @@ export class ContactComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.service.getProfile()
+    this.service.getBusiness()
       .subscribe(response => {
-        this.business = response['data']['business'];
+        this.business = response['data'];
       });
 
     this.contactForm = this.formBuilder.group(

@@ -16,13 +16,14 @@ export class ServiceComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.service.getProfile()
-      .subscribe(response => {
-        this.business = response['data']['business'];
-        this.items = response['data']['business']['items'];
-        if (this.items) {
-          this.isLoaded = true;
-        }
-      });
+    this.service.getBusiness().subscribe(response => {
+      this.business = response['data'];
+    });
+    this.service.getProducts().subscribe(response => {
+      this.items = response['data'];
+      if (this.items) {
+        this.isLoaded = true;
+      }
+    });
   }
 }

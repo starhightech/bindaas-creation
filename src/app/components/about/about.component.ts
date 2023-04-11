@@ -15,9 +15,9 @@ export class AboutComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.service.getProfile()
+    this.service.getBusiness()
       .subscribe(response => {
-        this.business = response['data']['business'];
+        this.business = response['data'];
         if (this.business) {
           this.isLoaded = true;
         }

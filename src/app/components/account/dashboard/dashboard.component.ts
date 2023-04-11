@@ -36,6 +36,7 @@ export class DashboardComponent implements OnInit {
     this.service.getProfile()
       .subscribe(response => {
         this.profile = response['data'];
+        sessionStorage.setItem('userhash', this.service.encrypt(response['data']['id']));
         if (this.profile) {
           this.profileLoaded = true;
         }

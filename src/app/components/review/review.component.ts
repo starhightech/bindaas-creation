@@ -14,15 +14,15 @@ export class ReviewComponent implements OnInit {
     private service: CommonService,
   ) { }
   ngOnInit(): void {
-    this.service.getProfile()
+    this.service.getBusiness()
       .subscribe(response => {
-        this.business = response['data']['business'];
+        this.business = response['data'];
         if (this.business) {
-          this.service.getReviews(this.business.id)
+          this.service.getReviews()
             .subscribe(response => {
               this.reviews = response['data'];
-              if(this.reviews){
-                this.isLoaded =true;
+              if (this.reviews) {
+                this.isLoaded = true;
               }
             });
         }

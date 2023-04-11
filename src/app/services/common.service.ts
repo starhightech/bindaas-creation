@@ -29,7 +29,7 @@ export class CommonService {
   getProfile(): Observable<any> {
     const headers = this.getHeaders();
     return this.httpClient.get(
-      this.url + 'profile/me?expand=business,business.items',
+      this.url + 'profile/me?expand=business',
       {
         headers: headers
       }
@@ -37,13 +37,23 @@ export class CommonService {
     )
   }
 
-  getReviews(id: any): Observable<any> {
-    const headers = this.getHeaders();
+  getBusiness(): Observable<any> {
     return this.httpClient.get(
-      this.url + 'businesses/reviews?id=' + id,
-      {
-        headers: headers
-      }
+      this.url + 'businesses/' + environment.APP_ID,
+    ).pipe(catchError(this.handleError)
+    )
+  }
+
+  getProducts(): Observable<any> {
+    return this.httpClient.get(
+      this.url + 'businesses/items?id=' + environment.APP_ID,
+    ).pipe(catchError(this.handleError)
+    )
+  }
+
+  getReviews(): Observable<any> {
+    return this.httpClient.get(
+      this.url + 'businesses/reviews?id=' + environment.APP_ID,
     ).pipe(catchError(this.handleError)
     )
   }
@@ -139,7 +149,9 @@ export class CommonService {
   }
 
   contact(contact: any, id: any): Observable<any> {
-    const headers = this.getHeaders();
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+    });
     var data = {
       business_id: id,
       name: contact.name,
