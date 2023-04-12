@@ -11,10 +11,11 @@
 
     <nav id="navbar" class="navbar">
       <ul>
-        <li><a [routerLink]="['home']">Home</a></li>
-        <li><a *ngIf="business && items?.length" [routerLink]="['service']">{{business.type}}s</a></li>
-        <li><a [routerLink]="['about']">About Us</a></li>
-        <li><a [routerLink]="['review']">Reviews</a></li>
+        <li><a [routerLink]="['home']" [routerLinkActive]="'active'">Home</a></li>
+        <li><a *ngIf="business && items?.length" [routerLink]="['service']"
+            [routerLinkActive]="'active'">{{business.type}}s</a></li>
+        <li><a [routerLink]="['about']" [routerLinkActive]="'active'">About Us</a></li>
+        <li><a [routerLink]="['review']" [routerLinkActive]="'active'">Reviews</a></li>
         <li><a [routerLink]="['contact']" class="d-xs-block d-sm-block d-md-none d-lg-none">Contact Us</a></li>
       </ul>
     </nav><!-- .navbar -->
