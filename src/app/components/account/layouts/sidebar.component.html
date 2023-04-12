@@ -18,33 +18,35 @@
       <div class="app-sidebar__user clearfix">
         <ul id="account-menu" class="side-menu list-unstyled">
           <li>
-            <a class="side-menu__item" [routerLink]="['dashboard']">
-              <i class="fa fa-home fs-20"></i><span class="side-menu__label ms-2">Dashboard</span>
+            <a class="side-menu-item" [routerLink]="['dashboard']" [routerLinkActive]="'side-menu-item-active'">
+              <i class="fa fa-home fs-20"></i><span class="side-menu-label ms-2">Dashboard</span>
             </a>
           </li>
           <li>
-            <a class="side-menu__item" [routerLink]="['business']" data-pjax="0">
-              <i class="fa fa-briefcase fs-20 "></i><span class="side-menu__label ms-2">My Business</span>
+            <a class="side-menu-item" [routerLink]="['business']" [routerLinkActive]="'side-menu-item-active'"
+              data-pjax="0">
+              <i class="fa fa-briefcase fs-20 "></i><span class="side-menu-label ms-2">My Business</span>
             </a>
           </li>
           <li>
-            <a class="side-menu__item" [routerLink]="['product']" data-pjax="0">
-              <i class="fa fa-plus fs-20 "></i><span class="side-menu__label ms-2">My {{business_type}}s</span>
+            <a class="side-menu-item" [routerLink]="['product']" [routerLinkActive]="'side-menu-item-active'"
+              data-pjax="0">
+              <i class="fa fa-plus fs-20 "></i><span class="side-menu-label ms-2">My {{business_type}}s</span>
             </a>
           </li>
           <li>
-            <a class="side-menu__item" [routerLink]="['profile']">
-              <i class="fa fa-user fs-20 "></i><span class="side-menu__label ms-2">My Profile</span>
+            <a class="side-menu-item" [routerLink]="['profile']" [routerLinkActive]="'side-menu-item-active'">
+              <i class="fa fa-user fs-20 "></i><span class="side-menu-label ms-2">My Profile</span>
             </a>
           </li>
           <!-- <li>
-            <a class="side-menu__item" [routerLink]="['setting']">
-              <i class="fa fa-cog fs-20 "></i><span class="side-menu__label ms-2">Settings</span>
+            <a class="side-menu-item" [routerLink]="['setting']">
+              <i class="fa fa-cog fs-20 "></i><span class="side-menu-label ms-2">Settings</span>
             </a>
           </li> -->
           <li>
-            <a class="side-menu__item" (click)="onLogout()">
-              <i class="fa fa-sign-out fs-20"></i><span class="side-menu__label ms-2">Logout</span>
+            <a class="side-menu-item" (click)="onLogout()">
+              <i class="fa fa-sign-out fs-20"></i><span class="side-menu-label ms-2">Logout</span>
             </a>
           </li>
         </ul>
