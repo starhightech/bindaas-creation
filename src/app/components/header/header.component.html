@@ -1,28 +1,30 @@
-<!-- ======= Header ======= -->
-<header id="header" class="header fixed-top d-flex align-items-center">
-  <div class="container d-flex align-items-center justify-content-between">
-
-    <a routerLink="/" class="logo d-flex align-items-center me-auto me-lg-0">
-      <!-- Uncomment the line below if you also wish to use an image logo -->
-      <!-- <img src="assets/img/logo.png" alt=""> -->
-
-      <h1 *ngIf="business">{{business.title}}</h1>
+<!--Navbar Start-->
+<nav class="navbar navbar-expand-lg fixed-top navbar-custom navbar-light sticky sticky-dark" id="navbar">
+  <div class="container">
+    <!-- LOGO -->
+    <a class="navbar-brand logo" routerLink="/">
+      <img src="./assets/images/zooki.png" alt="" height="20">
     </a>
-
-    <nav id="navbar" class="navbar">
-      <ul>
-        <li><a [routerLink]="['home']" [routerLinkActive]="'active'">Home</a></li>
-        <li><a *ngIf="business && items?.length" [routerLink]="['service']"
-            [routerLinkActive]="'active'">{{business.type}}s</a></li>
-        <li><a [routerLink]="['about']" [routerLinkActive]="'active'">About Us</a></li>
-        <li><a [routerLink]="['review']" [routerLinkActive]="'active'">Reviews</a></li>
-        <li><a [routerLink]="['contact']" class="d-xs-block d-sm-block d-md-none d-lg-none">Contact Us</a></li>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+      aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <i class="mdi mdi-menu"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav ms-auto navbar-center" id="navbar-navlist">
+        <li class="nav-item">
+          <a data-scroll [routerLink]="['home']" [routerLinkActive]="'active'" class="nav-link">Home</a>
+        </li>
+        <li class="nav-item">
+          <a data-scroll [routerLink]="['about']" [routerLinkActive]="'active'" class="nav-link">About</a>
+        </li>
+        <li class="nav-item">
+          <a data-scroll [routerLink]="['service']" [routerLinkActive]="'active'" class="nav-link">Services</a>
+        </li>
+        <li class="nav-item">
+          <a data-scroll [routerLink]="['/contact']" class="nav-link">Contact us</a>
+        </li>
       </ul>
-    </nav><!-- .navbar -->
-
-    <a [routerLink]="['/contact']" class="btn-book-a-table d-none d-md-block">Contact Us</a>
-    <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
-    <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
-
+    </div>
   </div>
-</header><!-- End Header -->
+</nav>
+<!-- Navbar End -->

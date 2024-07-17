@@ -1,126 +1,523 @@
-<!-- ======= Hero Section ======= -->
-<section id="hero" class="hero d-flex align-items-center section-bg">
-  <div class="container">
-    <div class="row justify-content-between gy-5">
-      <div *ngIf="business"
-        class="col-lg-5 order-2 order-lg-1 d-flex flex-column justify-content-center align-items-center align-items-lg-start text-center text-lg-start">
-        <h2 data-aos="fade-up">{{business.slogan}}</h2>
-
-        <div class="d-flex aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
-          <a [routerLink]="['/contact']" class="btn-book-a-table">Contact Us</a>
-        </div>
-      </div>
-      <div class="col-lg-5 order-1 order-lg-2 text-center text-lg-start">
-        <img *ngIf="business" src="{{business.image}}" class="img-fluid" alt="" data-aos="zoom-out"
-          data-aos-delay="300">
-      </div>
-    </div>
-  </div>
-</section><!-- End Hero Section -->
-
-<main id="main">
-  <!-- ======= About Section ======= -->
-  <section id="about" class="about">
-    <div class="container" data-aos="fade-up">
-      <div class="section-header">
-        <h2>About Us</h2>
-        <p>Learn More <span>About Us</span></p>
-      </div>
-      <div *ngIf="business" [innerHTML]="business.content"></div>
-    </div>
-  </section><!-- End About Section -->
-
-  <!-- ======= Service Section ======= -->
-  <section *ngIf="business && items?.length" id="product" class="menu section-bg">
-    <div class="container" data-aos="fade-up">
-      <div class="section-header">
-        <h2>Our {{business.type}}s</h2>
-        <p>Check Our <span>{{business.type}}s</span></p>
-      </div>
-      <div class="tab-content" data-aos="fade-up" data-aos-delay="300">
-        <div class="tab-pane fade active show" id="menu-starters">
-          <div class="row gy-5">
-            <div *ngFor="let item of items" class="col-lg-4 menu-item">
-              <a [routerLink]="['',item.slug]" class="glightbox">
-                <img src="{{item.image}}" class="menu-img img-fluid" alt="">
-              </a>
-              <a [routerLink]="['',item.slug]">
-                <h4>{{item.title}}</h4>
-              </a>
-              <p class="ingredients">{{item.location}}</p>
-              <p class="price">Rs {{item.price}}</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-  <!-- End Service Section -->
-
-  <!-- ======= Contact Section ======= -->
-  <section id="contact" class="contact">
-    <div class="container" data-aos="fade-up">
-
-      <div class="section-header">
-        <h2>Contact</h2>
-        <p>Need Help? <span>Contact Us</span></p>
-      </div>
-
-      <div *ngIf="business">
-        <div *ngIf="business.latitude && business.longitude" class="mb-3">
-          <iframe style="border:0; width: 100%; height: 350px;" [src]="mapUrl | safe" frameborder="0"
-            allowfullscreen></iframe>
-        </div>
-        <!-- End Google Maps -->
-      </div>
-
-      <div class="row gy-4">
-
-        <div class="col-md-6">
-          <div class="info-item  d-flex align-items-center">
-            <i class="icon bi bi-map flex-shrink-0"></i>
-            <div>
-              <h3>Our Address</h3>
-              <p *ngIf="business">{{business.location}}</p>
-            </div>
-          </div>
-        </div><!-- End Info Item -->
-
-        <div class="col-md-6">
-          <div class="info-item d-flex align-items-center">
-            <i class="icon bi bi-envelope flex-shrink-0"></i>
-            <div>
-              <h3>Email Us</h3>
-              <p *ngIf="business">{{business.email}}</p>
-            </div>
-          </div>
-        </div><!-- End Info Item -->
-
-        <div class="col-md-6">
-          <div class="info-item  d-flex align-items-center">
-            <i class="icon bi bi-telephone flex-shrink-0"></i>
-            <div>
-              <h3>Call Us</h3>
-              <p *ngIf="business">{{business.phone}}</p>
-            </div>
-          </div>
-        </div><!-- End Info Item -->
-
-        <div class="col-md-6">
-          <div class="info-item  d-flex align-items-center">
-            <i class="icon bi bi-share flex-shrink-0"></i>
-            <div>
-              <h3>Opening Hours</h3>
-              <div><strong>Sun-Fri:</strong> 10AM - 05PM;
-                <strong>Saturday:</strong> Closed
+<!-- HOME START -->
+<section class="section home-2-bg" id="home">
+  <div class="home-center">
+    <div class="home-desc-center">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-5">
+            <div class="mt-40 home-2-content">
+              <h1 class="text-white fw-normal home-2-title display-4 mb-0">{{business.slogan}}</h1>
+              <div class="mt-5">
+                <a href="#" class="btn btn-custom me-4">Learn More</a>
               </div>
             </div>
           </div>
-        </div><!-- End Info Item -->
+          <!-- col end -->
 
+          <div class="col-lg-7">
+            <div class="mt-40 home-2-content position-relative">
+              <img src="{{business.image}}" alt="" class="img-fluid mx-auto d-block home-2-img mover-img">
+              <div class="home-2-bottom-img">
+                <img src="assets/images/home-2-bg-bottom.png" alt="" class="img-fluid d-block mx-auto">
+              </div>
+            </div>
+          </div>
+          <!-- col end -->
+        </div>
+        <!-- row end -->
+      </div>
+      <!-- container end -->
+    </div>
+  </div>
+</section>
+<!-- HOME END -->
+
+<!-- ABOUT START -->
+<section class="section bg-about bg-light-about bg-light" id="about">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="title-heading mb-5">
+          <h3 class="text-dark mb-1 fw-light text-uppercase">About Us</h3>
+          <div class="title-border-simple position-relative"></div>
+        </div>
+      </div>
+      <!-- col end -->
+    </div>
+    <!-- row end -->
+
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="about-box about-light text-center p-3">
+          <div class="about-icon mb-4">
+            <i class="mdi mdi-lightbulb"></i>
+          </div>
+          <h4 class="fw-light"><a href="#" class="text-dark">Creative Design</a></h4>
+          <p class="text-muted f-14">Nemo enim ipsam voluptatem quia voluptas sit aspernatur at aut odit
+            aut fugit sed quia consequuntur magni.</p>
+        </div>
+      </div>
+      <!-- col end -->
+
+      <div class="col-lg-4">
+        <div class="about-box about-light text-center p-3">
+          <div class="about-icon mb-4">
+            <i class="mdi mdi-projector-screen"></i>
+          </div>
+          <h4 class="fw-light"><a href="#" class="text-dark">Strategy Solutions</a></h4>
+          <p class="text-muted f-14">Nemo enim ipsam voluptatem quia voluptas sit aspernatur at aut odit
+            aut fugit sed quia consequuntur magni.</p>
+        </div>
+      </div>
+      <!-- col end -->
+
+      <div class="col-lg-4">
+        <div class="about-box about-light text-center p-3">
+          <div class="about-icon mb-4">
+            <i class="mdi mdi-nature"></i>
+          </div>
+          <h4 class="fw-light"><a href="#" class="text-dark">Dynamic Growth</a></h4>
+          <p class="text-muted f-14">Nemo enim ipsam voluptatem quia voluptas sit aspernatur at aut odit
+            aut fugit sed quia consequuntur magni.</p>
+        </div>
+      </div>
+      <!-- col end -->
+    </div>
+    <!-- row end -->
+
+    <div class="row align-items-center mt-5">
+      <div class="col-md-6">
+        <div class="about-desc">
+          <h3 class="text-dark mb-3 fw-light">Performancect Solution For Small Businesses</h3>
+          <p class="text-muted f-15">Temporibus autem quibusdam a aut officiis debitis rerum
+            necessitatibus saepeeveniet ut et voluptates repudiandae sint a molestiae recusandae itaque
+            earum rerum hic tenetur a sapiente delectus ut at aut reiciendis voluptatibus maiores alias
+            consequatur perferendis doloribus asperiores rerum necessitat saepeeveniet.</p>
+          <div class="about-by">
+            <p class="fw-light mb-0"><a href="#" class="text-dark"><i
+                  class="mdi mdi-circle-medium text-custom me-2"></i>
+                Learn More <span class="text-custom"> About Us</span></a></p>
+          </div>
+        </div>
+      </div>
+      <!-- col end -->
+
+      <div class="col-md-6">
+        <div class="about-img light-img position-relative p-4">
+          <img src="assets/images/about-img.jpg" alt="" class="img-fluid mx-auto d-block">
+        </div>
+      </div>
+      <!-- col end -->
+    </div>
+    <!-- row end -->
+  </div>
+  <!-- container end -->
+</section>
+<!-- ABOUT END -->
+
+<!-- SERVICE START -->
+<section class="section" id="services">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="title-heading mb-5">
+          <h3 class="text-dark mb-1 fw-light text-uppercase">Our Services</h3>
+          <div class="title-border-simple position-relative"></div>
+        </div>
+      </div>
+      <!-- col end -->
+    </div>
+    <!-- row end -->
+
+    <div class="row">
+
+      <div *ngFor="let item of items" class="col-lg-4 col-md-6">
+        <div class="service-box rounded mt-4 p-4">
+          <div class="service-icon mb-3">
+            <i class="mdi mdi-database"></i>
+          </div>
+          <div class="services-desc">
+            <div class="service-title mb-2 position-relative">
+              <h5 class="fw-normal mb-3"><a [routerLink]="['',item.slug]" class="text-dark">{{item.title}}</a></h5>
+            </div>
+            <p class="text-muted mb-3 f-14" [innerHTML]="item.content">{{item.content}}</p>
+            <p class="mb-0 text-uppercase f-13"><a [routerLink]="['',item.slug]" class="text-primary">learn more<i class="mdi mdi-arrow-right ms-2"></i></a></p>
+          </div>
+        </div>
+      </div>
+      <!-- col end -->
+
+      <div class="col-lg-4 col-md-6">
+        <div class="service-box rounded mt-4 p-4">
+          <div class="service-icon mb-3">
+            <i class="mdi mdi-palette"></i>
+          </div>
+          <div class="services-desc">
+            <div class="service-title mb-2 position-relative">
+              <h5 class="fw-normal mb-3"><a href="#" class="text-dark">Unlimited Colors</a></h5>
+            </div>
+            <p class="text-muted mb-3 f-14">Sed ut perspiciatis unde sit omnise iste natus voluptatem
+              site accusantium doloremque laudantium combined with a handful totam.</p>
+            <p class="mb-0 text-uppercase f-13"><a href="#" class="text-primary">learn more<i
+                  class="mdi mdi-arrow-right ms-2"></i></a></p>
+          </div>
+        </div>
+      </div>
+      <!-- col end -->
+
+      <div class="col-lg-4 col-md-6">
+        <div class="service-box rounded mt-4 p-4">
+          <div class="service-icon mb-3">
+            <i class="mdi mdi-finance"></i>
+          </div>
+          <div class="services-desc">
+            <div class="service-title mb-2 position-relative">
+              <h5 class="fw-normal mb-3"><a href="#" class="text-dark">Strategy Solutions</a></h5>
+            </div>
+            <p class="text-muted mb-3 f-14">Sed ut perspiciatis unde sit omnise iste natus voluptatem
+              site accusantium doloremque laudantium combined with a handful totam.</p>
+            <p class="mb-0 text-uppercase f-13"><a href="#" class="text-primary">learn more<i
+                  class="mdi mdi-arrow-right ms-2"></i></a></p>
+          </div>
+        </div>
+      </div>
+      <!-- col end -->
+
+      <div class="col-lg-4 col-md-6">
+        <div class="service-box rounded mt-4 p-4">
+          <div class="service-icon mb-3">
+            <i class="mdi mdi-yin-yang"></i>
+          </div>
+          <div class="services-desc">
+            <div class="service-title mb-2 position-relative">
+              <h5 class="fw-normal mb-3"><a href="#" class="text-dark">Digital Design</a></h5>
+            </div>
+            <p class="text-muted mb-3 f-14">Sed ut perspiciatis unde sit omnise iste natus voluptatem
+              site accusantium doloremque laudantium combined with a handful totam.</p>
+            <p class="mb-0 text-uppercase f-13"><a href="#" class="text-primary">learn more<i
+                  class="mdi mdi-arrow-right ms-2"></i></a></p>
+          </div>
+        </div>
+      </div>
+      <!-- col end -->
+
+      <div class="col-lg-4 col-md-6">
+        <div class="service-box rounded mt-4 p-4">
+          <div class="service-icon mb-3">
+            <i class="mdi mdi-apple-keyboard-command"></i>
+          </div>
+          <div class="services-desc">
+            <div class="service-title mb-2 position-relative">
+              <h5 class="fw-normal mb-3"><a href="#" class="text-dark">Easy to customize</a></h5>
+            </div>
+            <p class="text-muted mb-3 f-14">Sed ut perspiciatis unde sit omnise iste natus voluptatem
+              site accusantium doloremque laudantium combined with a handful totam.</p>
+            <p class="mb-0 text-uppercase f-13"><a href="#" class="text-primary">learn more<i
+                  class="mdi mdi-arrow-right ms-2"></i></a></p>
+          </div>
+        </div>
+      </div>
+      <!-- col end -->
+
+      <div class="col-lg-4 col-md-6">
+        <div class="service-box rounded mt-4 p-4">
+          <div class="service-icon mb-3">
+            <i class="mdi mdi-hexagon-multiple"></i>
+          </div>
+          <div class="services-desc">
+            <div class="service-title mb-2 position-relative">
+              <h5 class="fw-normal mb-3"><a href="#" class="text-dark">Truly Multipurpose</a></h5>
+            </div>
+            <p class="text-muted mb-3 f-14">Sed ut perspiciatis unde sit omnise iste natus voluptatem
+              site accusantium doloremque laudantium combined with a handful totam.</p>
+            <p class="mb-0 text-uppercase f-13"><a href="#" class="text-primary">learn more<i
+                  class="mdi mdi-arrow-right ms-2"></i></a></p>
+          </div>
+        </div>
+      </div>
+      <!-- col end -->
+    </div>
+    <!-- row end -->
+  </div>
+  <!-- container end -->
+</section>
+<!-- SERVICE END -->
+
+<!-- FEATURES START -->
+<section class="section bg-features bg-light" id="features">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="title-heading mb-5">
+          <h3 class="text-dark mb-1 fw-light text-uppercase">Our Features</h3>
+          <div class="title-border-simple position-relative"></div>
+        </div>
+      </div>
+      <!-- col end -->
+    </div>
+    <!-- row end -->
+
+    <div class="row align-items-center">
+      <div class="col-lg-6">
+        <div class="features-content">
+          <div class="features-icon">
+            <i class="pe-7s-science text-primary"></i>
+          </div>
+          <h4 class="fw-normal text-dark mb-3 mt-4">Marketing Performance</h4>
+          <p class="text-muted f-14">Itaque earum rerum hic tenetur sapiente delectut reiciendis
+            voluptatibus perspiciatis unde omnis iste natus error sit maiores alias consequatur
+            perferendisthat doloribus asperiores repellat.</p>
+          <p class="text-muted f-14">Nam libero tempore cum soluta nobis eligendi optio cumque nihil
+            impedit minusidquod maxime placeat facere possimus.</p>
+          <p class="mb-0 text-uppercase f-13"><a href="#" class="text-primary">learn more <span
+                class="right-arrow ms-1">&#x21FE;</span></a></p>
+        </div>
+      </div>
+      <!-- col end -->
+      <div class="col-lg-6">
+        <div class="features-img mt-32">
+          <img src="assets/images/features-img/img-1.png" alt="" class="img-fluid mx-auto d-block">
+        </div>
+      </div>
+      <!-- col end -->
+    </div>
+    <!-- row end -->
+  </div>
+  <!-- container end -->
+</section>
+<!-- FEARURES 1 END -->
+
+<section class="section bg-features">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6">
+        <div class="features-img">
+          <img src="assets/images/features-img/img-2.png" alt="" class="img-fluid mx-auto d-block">
+        </div>
+      </div>
+      <!-- col end -->
+      <div class="col-lg-6">
+        <div class="features-content mt-32">
+          <div class="features-icon">
+            <i class="pe-7s-shuffle text-primary"></i>
+          </div>
+          <h4 class="fw-normal text-dark mb-3 mt-4">Strategy Solutions</h4>
+          <p class="text-muted f-14">Itaque earum rerum hic tenetur sapiente delectut reiciendis
+            voluptatibus perspiciatis unde omnis iste natus error sit maiores alias consequatur
+            perferendisthat doloribus asperiores repellat.</p>
+          <p class="text-muted f-14">Nam libero tempore cum soluta nobis eligendi optio cumque nihil
+            impedit minusidquod maxime placeat facere possimus.</p>
+          <p class="mb-0 text-uppercase f-13"><a href="#" class="text-primary">learn more <span
+                class="right-arrow ms-1">&#x21FE;</span></a></p>
+        </div>
+      </div>
+      <!-- col end -->
+    </div>
+    <!-- row end -->
+  </div>
+  <!-- container end -->
+</section>
+<!-- FEARURES 2 END -->
+
+<section class="section bg-features bg-light">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6">
+        <div class="features-content">
+          <div class="features-icon">
+            <i class="pe-7s-display1 text-primary"></i>
+          </div>
+          <h4 class="fw-normal text-dark mb-3 mt-4">Marketing business</h4>
+          <p class="text-muted f-14">Itaque earum rerum hic tenetur sapiente delectut reiciendis
+            voluptatibus perspiciatis unde omnis iste natus error sit maiores alias consequatur
+            perferendisthat doloribus asperiores repellat.</p>
+          <p class="text-muted f-14">Nam libero tempore cum soluta nobis eligendi optio cumque nihil
+            impedit minusidquod maxime placeat facere possimus.</p>
+          <p class="mb-0 text-uppercase f-13"><a href="#" class="text-primary">learn more <span
+                class="right-arrow ms-1">&#x21FE;</span></a></p>
+        </div>
+      </div>
+      <!-- col end -->
+      <div class="col-lg-6">
+        <div class="features-img mt-40">
+          <img src="assets/images/features-img/img-3.png" alt="" class="img-fluid mx-auto d-block">
+        </div>
+      </div>
+      <!-- col end -->
+    </div>
+    <!-- row end -->
+  </div>
+  <!-- container end -->
+</section>
+<!-- FEATURES 3 END -->
+
+<!-- CONTACT US START -->
+<section class="section bg-light" id="contact">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="title-heading mb-5">
+          <h3 class="text-dark mb-1 fw-light text-uppercase">Get in touch</h3>
+          <div class="title-border-simple position-relative"></div>
+        </div>
+      </div>
+      <!-- col end -->
+    </div>
+    <!-- row end -->
+
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="contact-box p-5">
+          <div class="row">
+            <div class="col-lg-8 col-md-6">
+              <div class="custom-form p-3">
+                <form method="post" name="myForm" onsubmit="return validateForm()">
+                  <p id="error-msg"></p>
+                  <div id="simple-msg"></div>
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <div class="mb-3 app-label">
+                        <input name="name" id="name" type="text" class="form-control" placeholder="Name">
+                      </div>
+                    </div>
+                    <!-- col end -->
+                    <div class="col-lg-6">
+                      <div class="mb-3 app-label">
+                        <input name="email" id="email" type="email" class="form-control" placeholder="Email">
+                      </div>
+                    </div>
+                    <!-- col end -->
+                    <div class="col-lg-12">
+                      <div class="mb-3 app-label">
+                        <input type="text" class="form-control" id="subject" placeholder="Subject" />
+                      </div>
+                    </div>
+                    <!-- col end -->
+                    <div class="col-lg-12">
+                      <div class="mb-3 app-label">
+                        <textarea name="comments" id="comments" rows="5" class="form-control"
+                          placeholder="Message"></textarea>
+                      </div>
+                    </div>
+                    <!-- col end -->
+                  </div>
+                  <!-- row end -->
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <input type="submit" id="submit" name="send" class="submitBnt btn btn-custom"
+                        value="Send Message">
+                    </div>
+                    <!-- col end -->
+                  </div>
+                  <!-- row end -->
+                </form>
+              </div>
+            </div>
+            <!-- col end -->
+
+            <div class="col-lg-4 col-md-6">
+              <div class="contact-cantent p-3">
+                <div class="contact-details">
+                  <div class="float-start contact-icon me-3 mt-2">
+                    <i class="mdi mdi-headphones text-muted h5"></i>
+                  </div>
+                  <div class="app-contact-desc text-muted pt-1">
+                    <p class="mb-0 info-title f-13">Call :</p>
+                    <p class="mb-0 f-13">{{business.phone}}</p>
+                  </div>
+                </div>
+
+                <div class="contact-details mt-2">
+                  <div class="float-start contact-icon me-3 mt-2">
+                    <i class="mdi mdi-email-outline text-muted h5"></i>
+                  </div>
+                  <div class="app-contact-desc text-muted pt-1">
+                    <p class="mb-0 info-title f-13">Email :</p>
+                    <p class="mb-0 f-13"><a href="#" class="text-muted">{{business.email}}</a>
+                    </p>
+                  </div>
+                </div>
+
+                <div class="contact-details mt-2">
+                  <div class="float-start contact-icon me-3 mt-2">
+                    <i class="mdi mdi-map-marker text-muted h5"></i>
+                  </div>
+                  <div class="app-contact-desc text-muted pt-1">
+                    <p class="mb-0 info-title f-13">Location :</p>
+                    <p class="mb-0 f-13"><a href="#" class="text-muted">{{business.location}}</a></p>
+                  </div>
+                </div>
+
+                <div class="follow mt-4">
+                  <h4 class="text-dark mb-3">Follow</h4>
+                  <ul class="follow-icon list-inline mt-32 mb-0">
+                    <li class="list-inline-item f-15"><a href="#" class="social-icon text-muted"><i
+                          class="mdi mdi-facebook"></i></a>
+                    </li>
+                    <li class="list-inline-item f-15"><a href="#" class="social-icon text-muted"><i
+                          class="mdi mdi-twitter"></i></a>
+                    </li>
+                    <li class="list-inline-item f-15"><a href="#" class="social-icon text-muted"><i
+                          class="mdi mdi-google-plus"></i></a></li>
+                    <li class="list-inline-item f-15"><a href="#" class="social-icon text-muted"><i
+                          class="mdi mdi-linkedin"></i></a>
+                    </li>
+                    <li class="list-inline-item f-15"><a href="#" class="social-icon text-muted"><i
+                          class="mdi mdi-whatsapp"></i></a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <!-- col end -->
+          </div>
+          <!-- row end -->
+        </div>
+      </div>
+      <!-- col end -->
+    </div>
+    <!-- row end -->
+  </div>
+  <!-- container end -->
+</section>
+<!-- CONTACT US END -->
+
+
+<!-- ======= About Section ======= -->
+<section id="about" class="about">
+  <div class="container" data-aos="fade-up">
+    <div class="section-header">
+      <h2>About Us</h2>
+      <p>Learn More <span>About Us</span></p>
+    </div>
+    <div *ngIf="business" [innerHTML]="business.content"></div>
+  </div>
+</section><!-- End About Section -->
+
+<!-- ======= Service Section ======= -->
+<section *ngIf="business && items?.length" id="product" class="menu section-bg">
+  <div class="container" data-aos="fade-up">
+    <div class="section-header">
+      <h2>Our {{business.type}}s</h2>
+      <p>Check Our <span>{{business.type}}s</span></p>
+    </div>
+    <div class="tab-content" data-aos="fade-up" data-aos-delay="300">
+      <div class="tab-pane fade active show" id="menu-starters">
+        <div class="row gy-5">
+          <div *ngFor="let item of items" class="col-lg-4 menu-item">
+            <a [routerLink]="['',item.slug]" class="glightbox">
+              <img src="{{item.image}}" class="menu-img img-fluid" alt="">
+            </a>
+            <a [routerLink]="['',item.slug]">
+              <h4>{{item.title}}</h4>
+            </a>
+            <p class="ingredients">{{item.location}}</p>
+            <p class="price">Rs {{item.price}}</p>
+          </div>
+        </div>
       </div>
     </div>
-  </section><!-- End Contact Section -->
 
-</main><!-- End #main -->
+  </div>
+</section>
+<!-- End Service Section -->

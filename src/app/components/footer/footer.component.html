@@ -1,59 +1,76 @@
-<!-- ======= Footer ======= -->
-<footer id="footer" class="footer">
-
+<!-- FOOTER START -->
+<section class="footer-bg">
   <div class="container">
-    <div class="row gy-3">
-      <div class="col-lg-3 col-md-6 d-flex">
-        <i class="bi bi-geo-alt icon"></i>
-        <div>
-          <h4>Address</h4>
-          <p *ngIf="business">{{business.location}}</p>
-        </div>
-
-      </div>
-
-      <div class="col-lg-3 col-md-6 footer-links d-flex">
-        <i class="bi bi-telephone icon"></i>
-        <div>
-          <h4>Reservations</h4>
-          <p *ngIf="business">
-            <strong>Phone:</strong> {{business.phone}}<br>
-            <strong>Email:</strong> {{business.email}}<br>
-          </p>
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="mb-5">
+          <p class="text-uppercase text-dark footer-title mb-4">About Us</p>
+          <p class="text-muted f-14">Sed ut perspiciatis unde omnis iste natus error sit voluptatem that
+            is doloremque totam that laudantiume.</p>
         </div>
       </div>
+      <!-- col end -->
+      <div class="col-lg-8">
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="mb-5">
+              <p class="text-uppercase text-dark footer-title mb-4">Company</p>
+              <ul class="list-unstyled footer-sub-menu">
+                <li class="f-14"><a href="#" class="text-muted">Job Opening</a></li>
+                <li class="f-14"><a href="#" class="text-muted">Customers</a></li>
+                <li class="f-14"><a href="#" class="text-muted">Privacy</a></li>
+              </ul>
+            </div>
+          </div>
+          <!-- col end -->
 
-      <div class="col-lg-3 col-md-6 footer-links d-flex">
-        <i class="bi bi-clock icon"></i>
-        <div>
-          <h4>Opening Hours</h4>
-          <p>
-            <strong>Sun-Fri: </strong>10AM - 05PM<br>
-            <strong>Saturday: </strong> Closed
-          </p>
+          <div class="col-lg-4">
+            <div class="mb-5">
+              <p class="text-uppercase text-dark footer-title mb-4">Support</p>
+              <ul class="list-unstyled footer-sub-menu">
+                <li class="f-14"><a href="#" class="text-muted">Get Started</a></li>
+                <li class="f-14"><a href="#" class="text-muted">Blog</a></li>
+                <li class="f-14"><a href="#" class="text-muted">Knowledge Base</a></li>
+              </ul>
+            </div>
+          </div>
+          <!-- col end -->
+
+          <div class="col-lg-4">
+            <div class="mb-5">
+              <p class="text-uppercase text-dark footer-title mb-4">Legal</p>
+              <ul class="list-unstyled footer-sub-menu">
+                <li class="f-14"><a href="#" class="text-muted">Terms & Conditions</a></li>
+                <li class="f-14"><a href="#" class="text-muted">Privacy Policy</a></li>
+                <li class="f-14"><a href="#" class="text-muted">Customers</a></li>
+              </ul>
+            </div>
+          </div>
+          <!-- col end -->
         </div>
+        <!-- row end -->
       </div>
-
-      <div class="col-lg-3 col-md-6 footer-links">
-        <h4>Follow Us</h4>
-        <div *ngIf="business" class="social-links d-flex">
-          <a href="{{business.links.twitter}}" target="_blank" class="twitter"><i class="bi bi-twitter"></i></a>
-          <a href="{{business.links.facebook}}" target="_blank" class="facebook"><i class="bi bi-facebook"></i></a>
-          <a href="{{business.links.instagram}}" target="_blank" class="instagram"><i class="bi bi-instagram"></i></a>
-          <a href="{{business.links.linkedin}}" target="_blank" class="linkedin"><i class="bi bi-linkedin"></i></a>
-        </div>
-      </div>
-
+      <!-- col end -->
     </div>
+    <!-- row end -->
   </div>
+  <!-- container end -->
+</section>
+<!-- FOOTER END -->
 
+<!-- FOOTER ALT START -->
+<section class="footer-alt bg-dark pt-3 pb-3">
   <div class="container">
-    <div class="copyright">
-      &copy; Copyright <strong><span>BizDire Nepal</span></strong>. All Rights Reserved
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <p class="copyright text-white f-14 fw-light mb-0">
+          <script>document.write(new Date().getFullYear())</script> © Bindaas Creation. Maintained By BizDire Nepal
+        </p>
+      </div>
+      <!-- col end -->
     </div>
-    <div class="credits"> Designed by <a href="https://bizdirenepal.com/">BizDire Nepal</a>
-    </div>
+    <!-- row end -->
   </div>
-
-</footer><!-- End Footer -->
-<!-- End Footer -->
+  <!-- container end -->
+</section>
+<!-- FOOTER ALT END -->
