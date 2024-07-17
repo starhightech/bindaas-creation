@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "demo-angular": {
+    "ngapp": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -16,7 +16,7 @@
             "customWebpackConfig": {
               "path": "src/custom-webpack.config.ts"
             },
-            "outputPath": "dist/demo-angular",
+            "outputPath": "dist/ngapp",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -25,30 +25,22 @@
             "tsConfig": "tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
-              "src/assets",
-              {
-                "glob": "**/*",
-                "input": "./node_modules/@kolkov/angular-editor/assets/",
-                "output": "./assets/fonts/"
-              }
+              "src/assets"
             ],
             "styles": [
-              "src/assets/vendor/bootstrap/css/bootstrap.min.css",
-              "src/assets/vendor/bootstrap-icons/bootstrap-icons.css",
-              "src/assets/vendor/glightbox/css/glightbox.min.css",
-              "src/assets/vendor/swiper/swiper-bundle.min.css",
-              "src/assets/vendor/aos/aos.css",
-              "src/assets/css/main.css",
-              "src/styles.css",
-              "node_modules/ngx-toastr/toastr.css",
-              "node_modules/font-awesome/css/font-awesome.css"
+              "src/assets/css/materialdesignicons.min.css",
+              "src/assets/css/pe-icon-7.css",
+              "src/assets/css/tiny-slider.css",
+              "src/assets/css/bootstrap.min.css",
+              "src/assets/css/style.css",
+              "src/styles.css"
             ],
             "scripts": [
-              "src/assets/vendor/bootstrap/js/bootstrap.bundle.min.js",
-              "src/assets/vendor/glightbox/js/glightbox.min.js",
-              "src/assets/vendor/swiper/swiper-bundle.min.js",
-              "src/assets/vendor/aos/aos.js",
-              "src/assets/js/main.js"
+              "src/assets/js/bootstrap.bundle.min.js",
+              "src/assets/js/smooth-scroll.polyfills.min.js",
+              "src/assets/js/gumshoe.polyfills.min.js",
+              "src/assets/js/tiny-slider.js",
+              "src/assets/js/app.js"
             ]
           },
           "configurations": {
@@ -88,10 +80,10 @@
           "builder": "@angular-builders/custom-webpack:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "demo-angular:build:production"
+              "browserTarget": "ngapp:build:production"
             },
             "development": {
-              "browserTarget": "demo-angular:build:development"
+              "browserTarget": "ngapp:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -99,7 +91,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "demo-angular:build"
+            "browserTarget": "ngapp:build"
           }
         },
         "test": {
@@ -112,30 +104,22 @@
             "tsConfig": "tsconfig.spec.json",
             "assets": [
               "src/favicon.ico",
-              "src/assets",
-              {
-                "glob": "**/*",
-                "input": "./node_modules/@kolkov/angular-editor/assets/",
-                "output": "./assets/fonts/"
-              }
+              "src/assets"
             ],
             "styles": [
-              "src/assets/vendor/bootstrap/css/bootstrap.min.css",
-              "src/assets/vendor/bootstrap-icons/bootstrap-icons.css",
-              "src/assets/vendor/glightbox/css/glightbox.min.css",
-              "src/assets/vendor/swiper/swiper-bundle.min.css",
-              "src/assets/vendor/aos/aos.css",
-              "src/assets/css/main.css",
-              "src/styles.css",
-              "node_modules/ngx-toastr/toastr.css",
-              "node_modules/font-awesome/css/font-awesome.css"
+              "src/assets/css/materialdesignicons.min.css",
+              "src/assets/css/pe-icon-7.css",
+              "src/assets/css/tiny-slider.css",
+              "src/assets/css/bootstrap.min.css",
+              "src/assets/css/style.css",
+              "src/styles.css"
             ],
             "scripts": [
-              "src/assets/vendor/bootstrap/js/bootstrap.bundle.min.js",
-              "src/assets/vendor/glightbox/js/glightbox.min.js",
-              "src/assets/vendor/swiper/swiper-bundle.min.js",
-              "src/assets/vendor/aos/aos.js",
-              "src/assets/js/main.js"
+              "src/assets/js/bootstrap.bundle.min.js",
+              "src/assets/js/smooth-scroll.polyfills.min.js",
+              "src/assets/js/gumshoe.polyfills.min.js",
+              "src/assets/js/tiny-slider.js",
+              "src/assets/js/app.js"
             ]
           }
         }

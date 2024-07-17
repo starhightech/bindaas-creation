@@ -12,7 +12,6 @@ export class HomeComponent implements OnInit {
   public profile: any;
   public business: any;
   public items: any;
-  public google_api_key: any;
   public mapUrl: any;
 
   constructor(
@@ -20,8 +19,6 @@ export class HomeComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.google_api_key = environment.GOOGLE_MAPS_APIKEY;
-
     this.service.getBusiness().subscribe(response => {
       this.business = response['data'];
       this.mapUrl = 'https://maps.google.com/maps?q=' + this.business.latitude + ',' + this.business.longitude + '&hl=en;z=14&output=embed';

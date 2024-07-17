@@ -2,13 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpResponse, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
-import { environment } from 'src/environments/environment.development';
-import * as CryptoJS from 'crypto-js';
-
-
-
-// import {CryptoJs} from
-// var CryptoJS = require("crypto-js");
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -58,49 +52,6 @@ export class CommonService {
     )
   }
 
-  updateBusiness(business: any, id: any): Observable<any> {
-    const headers = this.getHeaders();
-    var data = {
-      title: business.title,
-      slogan: business.slogan,
-      content: business.content,
-      city: business.city,
-      location: business.location,
-      email: business.email,
-      phone: business.phone,
-      mobile: business.mobile,
-      whatsapp_phone: business.whatsapp_phone,
-      latitude: business.latitude,
-      longitude: business.longitude,
-      link_website: business.link_website,
-      link_facebook: business.link_facebook,
-      link_twitter: business.link_twitter,
-      link_youtube: business.link_youtube,
-      link_instagram: business.link_instagram,
-      link_linkedin: business.link_linkedin,
-      link_tiktok: business.link_tiktok,
-      link_pinterest: business.link_pinterest,
-      meta: {
-        openings: {
-          sunday: business.opening_sunday,
-          monday: business.opening_monday,
-          tuesday: business.opening_tuesday,
-          wednesday: business.opening_wednesday,
-          thursday: business.opening_thursday,
-          friday: business.opening_friday,
-          saturday: business.opening_saturday,
-        }
-      }
-    }
-    return this.httpClient.put(
-      this.url + 'businesses/' + id, JSON.stringify(data),
-      {
-        headers: headers
-      }
-    ).pipe(catchError(this.handleError)
-    )
-  }
-
   // Handle API errors
   handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
@@ -113,15 +64,6 @@ export class CommonService {
     return throwError(
       'Something bad happened; please try again later.');
   };
-
-  public encrypt(string: String) {
-    return CryptoJS.AES.encrypt(string.toString(), 'bizdire').toString();
-  }
-
-  public decrypt(string: String) {
-    var bytes = CryptoJS.AES.decrypt(string.toString(), 'bizdire');
-    return bytes.toString(CryptoJS.enc.Utf8);
-  }
 
   getCategoriesByHeadcat(): Observable<any> {
     const headers = this.getHeaders();
